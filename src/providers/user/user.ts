@@ -34,7 +34,7 @@ export class User {
    * the user entered on the form.
    */
   login(accountInfo: any) {
-    let seq = this.api.post('login', accountInfo).share();
+    let seq = this.api.post('login.php', accountInfo).share();
 
     seq.subscribe((res: any) => {
       // If the API returned a successful response, mark the user as logged in
@@ -44,6 +44,7 @@ export class User {
       }
     }, err => {
       console.error('ERROR', err);
+	  console.log(accountInfo);
     });
 
     return seq;
@@ -54,7 +55,7 @@ export class User {
    * the user entered on the form.
    */
   signup(accountInfo: any) {
-    let seq = this.api.post('signup', accountInfo).share();
+    let seq = this.api.post('signup.php', accountInfo).share();
 
     seq.subscribe((res: any) => {
       // If the API returned a successful response, mark the user as logged in
@@ -63,6 +64,7 @@ export class User {
       }
     }, err => {
       console.error('ERROR', err);
+	  console.log(accountInfo);
     });
 
     return seq;
